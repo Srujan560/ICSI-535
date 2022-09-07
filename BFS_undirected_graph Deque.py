@@ -85,7 +85,7 @@ ans.append(0)
 #             if val==1 and visted[index]==0: # We check if node is adjacent meaing connted by the edge and 
 #                 #second one is there to check if that node was already visted saves but not adding the deque
 #                 q.append(index)#add to the quee
-ex= bfs_recurison(q,visted,ans)
+ bfs_recurison(q,visted,ans)
 # Let Prints the nodes in order that we Visted 
 
 
