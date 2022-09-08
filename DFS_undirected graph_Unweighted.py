@@ -21,7 +21,7 @@ g1 = {'S' :['D','E','P'],
 #     print(temp)
 # print(g1['S'][0])
 
-visted ={'A':0,'B':0,'C':0,'D':0,'E':0,'F':0,'G':0,'H':0,'P':0,'Q':0,'R':0}
+visited ={'A':0,'B':0,'C':0,'D':0,'E':0,'F':0,'G':0,'H':0,'P':0,'Q':0,'R':0}
 # print(list(g1.keys())[0])
 # for k,v in visted.items():
 #     visted[k]=1
@@ -60,7 +60,7 @@ def dfs(visted,q=deque(),ans=[]):
             if isinstance(ans,str): # check if it is an answer
                 break#than exit the for loop
     return ans#Just return the same string till nothing left
-t =dfs(visted,q,ans)   
+t =dfs(visited,q,ans)   
 # print(t, "if this list than we where not able find our Goal")
 
 
