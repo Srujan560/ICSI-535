@@ -43,7 +43,7 @@ def dfs(visted,q=deque(),ans=[]):
         return ans# return an list
     temp = q.popleft()
     ans.append(temp)
-    if(temp=='M'):
+    if(temp=='G'):
         str_ans_path =""
         for x in ans:
             str_ans_path=str_ans_path+x+" "
@@ -61,7 +61,7 @@ def dfs(visted,q=deque(),ans=[]):
                 break#than exit the for loop
     return ans#Just return the same string till nothing left
 t =dfs(visted,q,ans)   
-# print(t)
+# print(t, "if this list than we where not able find our Goal")
 
 
 
