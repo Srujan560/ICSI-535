@@ -14,6 +14,7 @@ from collections import deque
 # D 1 0 0 0 0 0 0 0 1 0 1 0
 #   S P Q H E R F G C A B D
 
+
 g1 = [[0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
 [1,0,1,1,0,0,0,0,0,0,0,0],
 [0,1,0,1,0,0,0,0,0,0,0,0],
@@ -27,14 +28,14 @@ g1 = [[0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
 [0,0,0,0,0,0,0,0,0,1,0,1],
 [1,0,0,0,0,0,0,0,1,0,1,0]
 ]
-count =0
+
+
 
 for x in g1:
     my_str = ""
     for y in x:
         my_str= my_str+str(y)+" "
     print(my_str)
-
 
 def bfs_recurison(q, visited,ans):
     print(q)
@@ -48,13 +49,10 @@ def bfs_recurison(q, visited,ans):
                 q.append(index)#add to the quee
     if len(q)!=0:
         ans = bfs_recurison(q, visited,ans)
+        # print(ans,"Test")
+        return ans
     else:
-        nodes_letters =["S","P","Q","H","E","R","F","G","C","A","B","D"]
-        ans_str=""
-        for x in ans:
-            ans_str = ans_str+nodes_letters[x]+" "
-            print(ans_str)
-        # return ans
+        return ans
 """
 Start = Quee, 
 Make Visted[] =size of (Nodes)
@@ -75,6 +73,20 @@ for x,val in enumerate(g1[0]):
         q.append(x)
 ans =[]
 ans.append(0)
+# Let Prints the nodes in order that we Visted 
+ans= bfs_recurison(q,visted,ans)
+# print(ans)
+nodes_letters =["S","P","Q","H","E","R","F","G","C","A","B","D"]
+ans_str=""
+for x in ans:
+    ans_str = ans_str+nodes_letters[x]+" "
+
+print("BFS recurison",ans_str)
+
+
+
+
+
 # while q:
 #     print(q)
 #     temp_index = q.popleft()
@@ -85,9 +97,30 @@ ans.append(0)
 #             if val==1 and visted[index]==0: # We check if node is adjacent meaing connted by the edge and 
 #                 #second one is there to check if that node was already visted saves but not adding the deque
 #                 q.append(index)#add to the quee
-bfs_recurison(q,visted,ans)
-# Let Prints the nodes in order that we Visted 
+#   1 2 3 4 5 6 7 8 9 10 11 12
+# 1 0 1 1 1 0 0 0 0 0 0 0 0 1
+# 2 1 0 0 0 1 1 0 0 0 0 0 0  2
+# 3 1 0 0 0 0 0 0 0 0 0 0 0  3
+# 4 0 0 0 0 0 0 1 1 0 0 0 0  4
+# 5 0 0 0 0 0 0 0 0 1 1 0 0  5
+# 6 0 1 0 0 0 0 0 0 0 0 0 0  6
+# 7 0 0 0 0 0 0 0 0 0 0 0 1 1 7
+# 8 0 0 0 1 0 0 0 0 0 0 0 0 0 8
+# 9 0 0 0 0 1 0 0 0 0 0 0 0 0 9
+#10 0 0 0 0 1 0 0 0 0 0 0 0 0 10
+#11 0 0 0 0 0 0 1 0 0 0 0 0 0 11
+#12 0 0 0 0 0 0 1 0 0 0 0 0 0 12
 
-
-
-    
+# gTestAns=[[0,1,1,1,0,0,0,0,0,0,0,0],
+# [1,0,0,0,1,1,0,0,0,0,0,0],
+# [1,0,0,0,0,0,0,0,0,0,0,0],
+# [0,0,0,0,0,0,1,1,0,0,0,0],
+# [0,0,0,0,0,0,0,0,1,1,0,0],
+# [0,1,0,0,0,0,0,0,0,0,0,0],
+# [0,0,0,0,0,0,0,0,0,0,1,1],
+# [0,0,0,1,0,0,0,0,0,0,0,0],
+# [0,0,0,0,1,0,0,0,0,0,0,0],
+# [0,0,0,0,1,0,0,0,0,0,0,0],
+# [0,0,0,0,0,0,1,0,0,0,0,0],
+# [0,0,0,0,0,0,1,0,0,0,0,0],
+# ]
