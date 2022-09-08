@@ -1,5 +1,3 @@
-from inspect import stack
-
 
 g1 = {'S' :['D','E','P'],
 'A': ['B', 'C'],
