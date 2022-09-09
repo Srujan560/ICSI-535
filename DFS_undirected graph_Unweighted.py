@@ -39,6 +39,7 @@ than add the first neighbor we visit
 than recursively call our function if not found it will come back to the for loop else it will return path it took 
 """
 def dfs(visted,q=deque(),ans=[]):
+    print(q)
     if not q:
         return ans# return an list
     temp = q.popleft()
@@ -52,7 +53,7 @@ def dfs(visted,q=deque(),ans=[]):
         return ans # we return string
         # exit()
     visted[temp]=1
-    print(visted)
+    # print(visted)
     for x in g1[temp]:
         if visted[x]==0:#Only visit a unvisited node
             q.append(x)# add to the deque
