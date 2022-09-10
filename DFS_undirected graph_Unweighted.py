@@ -55,7 +55,7 @@ def dfs(visted,q=deque(),ans=[]):
     visted[temp]=1
     # print(visted)
     for x in g1[temp]:
-        if visted[x]==0:#Only visit a unvisited node
+        if visted[x]==0 and temp not in (list(q)):#Only visit a unvisited node
             q.append(x)# add to the deque
             ans = dfs(visted,q,ans)# here we store answer
             if isinstance(ans,str): # check if it is an answer
