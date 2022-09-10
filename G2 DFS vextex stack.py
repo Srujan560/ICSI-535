@@ -25,7 +25,8 @@ while stack_dfs and temp_str!='G':# we make sure our stack is not empty and not 
         # if(temp_str=='G'):
         #     break
         for x in reversed(g2[temp_str]):# Let access adjacent node from back of the list meaning from farthest right (Deepest )  
-            stack_dfs.append(x) # let push that Node at bottom of our stack, So we can pop the Left most node first 
+            if x not in stack_dfs:
+                stack_dfs.append(x) # let push that Node at bottom of our stack, So we can pop the Left most node first 
     
 # print(ans)
 # For Printing Purpose 
