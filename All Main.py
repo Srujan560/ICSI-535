@@ -36,4 +36,4 @@ UCS_vertex_G3 = __import__("G3 UCS vertex")
 UCS_adjacent_matrix_G3 = __import__("G3 UCS adjacent matrix")
 
 UCS_vertex_G4 = __import__("G4 UCS vertex")
-UCS_adjacent_matrix_G4 = __import__("G4 UCS adjacent matrix")
+UCS_adjacent_matrix_G4 = __import__("G4 adjacent matrix")
