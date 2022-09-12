@@ -1,4 +1,5 @@
 PS C:\Users\sruja\OneDrive\Desktop\ICSI 535 Artificial Intelligence I\Hw 1> py '.\All Main.py'
+*************BFS G1**************
 deque(['S'])
 deque(['D', 'E', 'P'])
 deque(['E', 'P', 'B', 'C'])
@@ -51,6 +52,7 @@ BFS: S D E P B C H R Q A F G
 [6, 5]
 [6]
 BFS S D E P B C H R Q A F G
+*************DFS G1**************
 deque(['S'])
 deque(['D'])
 deque(['B'])
@@ -88,6 +90,7 @@ DFS S D B A C F G
 [8, 4, 5]
 [8, 4, 10, 6]
 DFS stack: S D B A C F G
+*************BFS G2**************
 deque(['S'])
 deque(['D', 'E', 'P'])
 deque(['E', 'P', 'B', 'C'])
@@ -140,6 +143,7 @@ BFS: S D E P B C H R Q A F G
 [5]
 [6]
 BFS S D E P B C H R Q A F G
+*************DFS G2**************
 deque(['S'])
 deque(['D'])
 deque(['B'])
@@ -204,6 +208,7 @@ DFS S D B A C E H P Q R F G
 [8, 5]
 [8, 6]
 DFS stack: S D B A C E H Q R F G
+*************UCS G3**************
 [(0, 'S')]
 [0, 'S'] p1
 [0, 'S'] p2
@@ -464,6 +469,7 @@ UCS cost 13 S D B A C F G
 [9, 11, 8, 7, 9] path 3
 
 UCS cost 13 and path S D B A C F G
+*************UCS G4**************
 [(0, 'S')]
 [0, 'S'] p1
 [0, 'S'] p2

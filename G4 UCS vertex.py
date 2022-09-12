@@ -1,6 +1,6 @@
 import queue
 
-g3= {
+g4= {
     'S':{'D':3,'E':9,'P':1},
     'D':{'B':1,'C':8,'E':2},
     'E':{'H':8,'R':2},
@@ -29,7 +29,7 @@ visited ={'A':0,'B':0,'C':0,'D':0,'E':0,'F':0,'G':0,'H':0,'P':0,'Q':0,'R':0,'S':
 # print(test)
 p_queue = queue.PriorityQueue()
 p_queue.put((0,'S'))#let add stating node
-ans = ["S"]*len(g3['S'])
+ans = ["S"]*len(g4['S'])
 possible1=[0,'S']
 possible2=[0,'S']
 possible3=[0,'S']
@@ -44,25 +44,25 @@ while not p_queue.empty():
     print(p_queue.queue)
     temp = p_queue.get()
     if temp[0]==0:
-        for x,val in enumerate(g3[temp[1]]):
+        for x,val in enumerate(g4[temp[1]]):
             if x==0:
-                # possible1[0]=g3[temp[1]][val]
+                # possible1[0]=g4[temp[1]][val]
                 # possible1.append(val)
-                p_queue.put((g3[temp[1]][val],val,val))
+                p_queue.put((g4[temp[1]][val],val,val))
             if x==1:
-                # possible2[0]=g3[temp[1]][val]
+                # possible2[0]=g4[temp[1]][val]
                 # possible2.append(val)
-                p_queue.put((g3[temp[1]][val],val,val))
+                p_queue.put((g4[temp[1]][val],val,val))
             if x==2:
-                # possible3[0]=g3[temp[1]][val]
+                # possible3[0]=g4[temp[1]][val]
                 # possible3.append(val)
-                p_queue.put((g3[temp[1]][val],val,val))
+                p_queue.put((g4[temp[1]][val],val,val))
     else:
         check= 0
-        # print(possible1[-1],"****",list(g3[temp[1]].keys()))
-        # print(temp[1],"^^^^",list(g3[possible1[-1]].keys()))
+        # print(possible1[-1],"****",list(g4[temp[1]].keys()))
+        # print(temp[1],"^^^^",list(g4[possible1[-1]].keys()))
         # break
-        if not g3[temp[1]]:
+        if not g4[temp[1]]:
             g_checker=0
             if temp[1]=='G':
                 g_checker=1
@@ -82,44 +82,44 @@ while not p_queue.empty():
                 if g_checker !=1:
                     possible3.append('STOP')
         else:
-            for x in g3[temp[1]]:
-                # print(list(g3[possible1[-1]].keys()),x ,"*******")
+            for x in g4[temp[1]]:
+                # print(list(g4[possible1[-1]].keys()),x ,"*******")
                 
                 if temp[2]=='D' and 'STOP' not in possible1:# if D
-                    # print('temp',temp[1]," *****",list(g3[possible1[-1]].keys()),"check ?",check)
-                    if check ==0 and temp[1] in list(g3[possible1[-1]].keys()) and temp[1] not in possible1:
+                    # print('temp',temp[1]," *****",list(g4[possible1[-1]].keys()),"check ?",check)
+                    if check ==0 and temp[1] in list(g4[possible1[-1]].keys()) and temp[1] not in possible1:
                         print('********')
                         check=1
                         possible1[0]= possible1[0]+temp[0]
                         possible1.append(temp[1])
                 
-                    if x not in possible1 and 'G' not in possible1 and 'STOP' not in possible1 and (g3[temp[1]][x],x,'D') not in list(p_queue.queue):
-                        # possible1[0]= possible1[0]+g3[temp[1]][x]
+                    if x not in possible1 and 'G' not in possible1 and 'STOP' not in possible1 and (g4[temp[1]][x],x,'D') not in list(p_queue.queue):
+                        # possible1[0]= possible1[0]+g4[temp[1]][x]
                         # possible1.append(x)
-                        # if x in list(g3[possible1[-1]].keys()):
-                            p_queue.put((g3[temp[1]][x],x,'D'))
+                        # if x in list(g4[possible1[-1]].keys()):
+                            p_queue.put((g4[temp[1]][x],x,'D'))
                 if temp[2]=='E' and 'STOP' not in possible2:
-                    if check ==0 and temp[1] in list(g3[possible2[-1]].keys()) and temp[1] not in possible2:
+                    if check ==0 and temp[1] in list(g4[possible2[-1]].keys()) and temp[1] not in possible2:
                         check=1
                         possible2[0]= possible2[0]+temp[0]
                         possible2.append(temp[1])
                 
-                    if x not in possible2 and 'G' not in possible2 and 'STOP' not in possible2 and (g3[temp[1]][x],x,'E') not in list(p_queue.queue):
-                        # possible2[0]= possible2[0]+g3[temp[1]][x]
+                    if x not in possible2 and 'G' not in possible2 and 'STOP' not in possible2 and (g4[temp[1]][x],x,'E') not in list(p_queue.queue):
+                        # possible2[0]= possible2[0]+g4[temp[1]][x]
                         # possible2.append(x)
-                        # if x in list(g3[possible2[-1]].keys()):
-                            p_queue.put((g3[temp[1]][x],x,'E'))
+                        # if x in list(g4[possible2[-1]].keys()):
+                            p_queue.put((g4[temp[1]][x],x,'E'))
                 if temp[2]=='P':
-                    if check ==0 and temp[1] in list(g3[possible3[-1]].keys()) and temp[1] not in possible3:
+                    if check ==0 and temp[1] in list(g4[possible3[-1]].keys()) and temp[1] not in possible3:
                         check=1
                         possible3[0]= possible3[0]+temp[0]
                         possible3.append(temp[1])
                     #let make sure it not the PQ already 
-                    if x not in possible3 and 'STOP' not in possible3 and 'G' not in possible3 and (g3[temp[1]][x],x,'P') not in list(p_queue.queue):
-                        # possible3[0]= possible3[0]+g3[temp[1]][x]
+                    if x not in possible3 and 'STOP' not in possible3 and 'G' not in possible3 and (g4[temp[1]][x],x,'P') not in list(p_queue.queue):
+                        # possible3[0]= possible3[0]+g4[temp[1]][x]
                         # possible3.append(x)
-                        # if x in list(g3[possible3[-1]].keys()):# this checks that last index can access Node before we put in the p q
-                            p_queue.put((g3[temp[1]][x],x,'P'))
+                        # if x in list(g4[possible3[-1]].keys()):# this checks that last index can access Node before we put in the p q
+                            p_queue.put((g4[temp[1]][x],x,'P'))
     print(possible1,"p1")
     print(possible2,"p2")
     print(possible3,"p3",)
@@ -174,11 +174,11 @@ while not p_queue.empty():
     # print(temp[1],"Test")
     # if visited[temp[1]]==0:
     #     visited[temp[1]]=1
-    #     for index,val in enumerate(g3[temp[1]]):
+    #     for index,val in enumerate(g4[temp[1]]):
     #         print(index," val = ",val)
     #         # if visited[val]==0:
     #         # ans[index] = ans[index]+" "+val
-    #         num = temp[0]+g3[temp[1]][val]
+    #         num = temp[0]+g4[temp[1]][val]
     #         # val=val
     #         # print(val)
     #         # temp[2]=list(temp[2]).append(temp[1])

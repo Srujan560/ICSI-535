@@ -9,31 +9,35 @@
 # dfs_vextex_stack = __import__("")
 # dfs_adjacent_matrix_recursive = __import__("")
 # dfs_adjacent_matrix_stack = __import__("")
-
+print("*************BFS G1**************")
 bfs_vextex_recursive = __import__("BFS_undirected_graph Vextex recureseive")
 bfs_vextex_stack = __import__("BFS_undirected_graph Vextex stack")
 bfs_adjacent_matrix_recursive =__import__("BFS_undirected_graph adjacent matrix recurcive")
 bfs_adjacent_matrix_stack = __import__("BFS_undirected_graph adjacent matrix stack")
-
+print("*************DFS G1**************")
 dfs_vextex_recursive = __import__("DFS_undirected graph_Unweighted")
 dfs_vextex_stack = __import__("DFS_Undirected graph_unweighted_stack")
 dfs_adjacent_matrix_recursive =__import__("DFS_undirected_graph adjacent_matrix recuresion")
 dfs_adjacent_matrix_stack =__import__("DFS_undirected_graph adjacent_matrix stack")
+
 """
 G2
 """
+print("*************BFS G2**************")
 bfs_vextex_recursive_G2 = __import__("G2 BFS Vextex recursive")
 bfs_vextex_stack_G2 = __import__("G2 BFS Vextex stack")
 bfs_adjacent_matrix_recursive_G2 = __import__("G2 BFS adjacent matrix recursive")
 bfs_adjacent_matrix_stack_G2 = __import__("G2 BFS adjacent matrix  stack")
-
+print("*************DFS G2**************")
 dfs_vextex_recursive_G2 = __import__("G2 DFS Vextex recursive")
 dfs_vextex_stack_G2 = __import__("G2 DFS vextex stack")
 dfs_adjacent_matrix_recursive_G2 = __import__("G2 DFS adjacent matrix recursive")
 dfs_adjacent_matrix_stack_G2 = __import__("G2 DFS adjacent matrix stack")
 
+print("*************UCS G3**************")
 UCS_vertex_G3 = __import__("G3 UCS vertex")
 UCS_adjacent_matrix_G3 = __import__("G3 UCS adjacent matrix")
+print("*************UCS G4**************")
 
 UCS_vertex_G4 = __import__("G4 UCS vertex")
 UCS_adjacent_matrix_G4 = __import__("G4 adjacent matrix")

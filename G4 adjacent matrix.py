@@ -1,5 +1,5 @@
 import queue
-g3 =[
+g4 =[
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -38,7 +38,7 @@ while  not priority_q.empty():
     print(priority_q.queue, "Priority queue")
     temp = priority_q.get()
     if temp[0]==0:# if staring node
-        for index,val in enumerate(g3[temp[1]]):
+        for index,val in enumerate(g4[temp[1]]):
             # print(index,"***",val)
             if val!=0:
                 for x,path in enumerate(paths):# loop through it add first index and take paths.. we 3 paths are so each node take a paths index
@@ -52,15 +52,15 @@ while  not priority_q.empty():
             
                 # print(x,"****",path,"\n")
     else:
-        #and g3[paths[temp[2][-1]]][temp[1]]!=0
-        num = g3[paths[temp[2]][-1]][temp[1]]# this so make sure it is node that is adjacent
+        #and g4[paths[temp[2][-1]]][temp[1]]!=0
+        num = g4[paths[temp[2]][-1]][temp[1]]# this so make sure it is node that is adjacent
         # print(num)
         if -1  not in paths[temp[2]] and temp[1] not in paths[temp[2]] and 6!= paths[temp[2]][-1] and num !=0:#checks matrix if does have -1 and no copies
             paths[temp[2]].append(temp[1])#add our index
             paths[temp[2]][0] = paths[temp[2]][0]+temp[0]#update the cost
             if temp[1] == 6 and not ans:# make sure it first to reach goal 
                 ans = paths[temp[2]]
-        for index,val in enumerate(g3[temp[1]]):# loop to find and queue next nodes
+        for index,val in enumerate(g4[temp[1]]):# loop to find and queue next nodes
             if temp[2]==0:
                 if index not in paths[0] and val!=0 and paths[0][-1]!=6 and -1 not in paths[0]:# we do not want queue if cost more than current answer and not go after index 6
                     # paths[0][0]= paths[0][0]+val
@@ -72,8 +72,8 @@ while  not priority_q.empty():
                     #     priority_q.put((val,index,0))
                     #     # paths[1].append('GOAL')
                     # else:
-                    # print(index,"***",g3[paths[temp[2]][-1]])
-                    if (val,index,0) not in list(priority_q.queue) and  g3[paths[temp[2]][-1]][index ]!=0:
+                    # print(index,"***",g4[paths[temp[2]][-1]])
+                    if (val,index,0) not in list(priority_q.queue) and  g4[paths[temp[2]][-1]][index ]!=0:
                         priority_q.put((val,index,0))# cost, index , which path it belongs to
                         # history_queue.append((val,index,0))
 
@@ -85,7 +85,7 @@ while  not priority_q.empty():
                     #     ans=paths[1]
                     #     # paths[1].append('GOAL')
                     # else:
-                    if (val,index,1) not in list(priority_q.queue) and g3[paths[temp[2]][-1]][index ]!=0:
+                    if (val,index,1) not in list(priority_q.queue) and g4[paths[temp[2]][-1]][index ]!=0:
                         priority_q.put((val,index,1))
             if temp[2]==2:
                 if index not in paths[2] and val!=0 and paths[2][-1]!=6  and -1 not in  paths[2]:
@@ -97,7 +97,7 @@ while  not priority_q.empty():
                     #     ans=paths[2]
                     #     # paths[1].append('GOAL')
                     # else:
-                    if (val,index,2) not in list(priority_q.queue) and g3[paths[temp[2]][-1]][index ]!=0:
+                    if (val,index,2) not in list(priority_q.queue) and g4[paths[temp[2]][-1]][index ]!=0:
                         priority_q.put((val,index,2))
                        
                     # priority_q.put((val,index,2))
