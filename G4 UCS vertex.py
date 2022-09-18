@@ -21,10 +21,13 @@ visited ={'A':0,'B':0,'C':0,'D':0,'E':0,'F':0,'G':0,'H':0,'P':0,'Q':0,'R':0,'S':
 p_queue = queue.PriorityQueue() #
 p_queue.put((0,'S',['S']))# In here We put current cost Current Node , and empty list
 ans =[]
+expand= []
 while not p_queue.empty():
     print(p_queue.queue)
     temp= p_queue.get()# let get lowest cost 
     visited[temp[1]]=1# update Graph 
+    if str(temp[1]) not in expand:
+        expand.append(temp[1])
     if temp[1]=='G':# stop once we find cheap 
         # temp[3].append(temp[1])
         ans=temp[2]# return the list
@@ -37,6 +40,10 @@ while not p_queue.empty():
             # here we add all the adjacent neighbor and the cost ... only lost cost will run  
             p_queue.put((temp[0]+g4[temp[1]][x],x,t3))
 # print(ans)
+tep="UCS expaned: "
+for x in expand:
+    tep=tep+x+" "
+print(tep)
 cost = ans.pop()
 temp_str="UCS G4 Cost "+str(cost)+" "
 for x in ans:
