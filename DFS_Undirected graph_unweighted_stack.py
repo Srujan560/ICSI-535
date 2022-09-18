@@ -1,4 +1,7 @@
 
+from asyncio import current_task
+
+
 g1 = {'S' :['D','E','P'],
 'A': ['B', 'C'],
 'C': ['A', 'D', 'F'],
@@ -17,17 +20,21 @@ ans=[]
 stack_dfs =[]
 stack_dfs.append(list(g1.keys())[0])# Let get first element for our graph 1
 temp_str =""
+current_stack=""
 while stack_dfs and temp_str!='G':# we make sure our stack is not empty and not 'G' our target find Goal 
     print(stack_dfs)
-    temp_str=stack_dfs.pop()#Let pop element from top of the stack
+    current_stack=stack_dfs.pop()
+    temp_str=current_stack[-1]#Let pop element from top of the stack
     if(visited[temp_str]==0):# make that element is not visited yet
         ans.append(temp_str)# add it to our node we visited
         visited[temp_str]=1# change it 1 to mark visited
         # if(temp_str=='G'):
         #     break
         for x in reversed(g1[temp_str]):# Let access adjacent node from back of the list meaning from farthest right (Deepest )  
-            if x not in stack_dfs:
-                stack_dfs.append(x) # let push that Node at bottom of our stack, So we can pop the Left most node first 
+            # if x not in stack_dfs:
+            new_stack = list(current_stack)
+            new_stack.append(x)
+            stack_dfs.append(new_stack) # let push that Node at bottom of our stack, So we can pop the Left most node first 
     
 # print(ans)
 # For Printing Purpose 
@@ -35,3 +42,7 @@ ans_str ="DFS stacks: "
 for x in ans:
     ans_str=ans_str+x+" "
 print(ans_str)
+ans_str="DFS PATH: "
+for x in current_stack:
+    ans_str=ans_str+x+" "
+print(ans_str)   
