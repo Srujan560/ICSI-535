@@ -28,7 +28,7 @@ visited ={'A':0,'B':0,'C':0,'D':0,'E':0,'F':0,'G':0,'H':0,'P':0,'Q':0,'R':0}
 # print(visted)
 q= deque()
 ans=[]
-q.append(list(g1.keys())[0])# First Let add our Start node 'S' in our deque
+q.append(('S',list(g1.keys())[0]))# First Let add our Start node 'S' in our deque
 #we will solve dfs using recursion 
 """
 First We check if q is empty
@@ -42,21 +42,28 @@ def dfs(visted,q=deque(),ans=[]):
     print(q)
     if not q:
         return ans# return an list
-    temp = q.popleft()
+    cur_q=q.popleft()
+    temp = cur_q[0]
     ans.append(temp)
     if(temp=='G'):
         str_ans_path =""
         for x in ans:
             str_ans_path=str_ans_path+x+" "
-        print("DFS",str_ans_path)
+        print("DFS expanded",str_ans_path)
+        str_ans_path =""
+        for x in cur_q[1]:
+            str_ans_path=str_ans_path+x+" "
+        print("DFS path",str_ans_path)
         ans =str_ans_path #This is break our for loop
         return ans # we return string
         # exit()
     visted[temp]=1
     # print(visted)
     for x in g1[temp]:
-        if visted[x]==0 and temp not in (list(q)):#Only visit a unvisited node
-            q.append(x)# add to the deque
+        if visted[x]==0:#Only visit a unvisited node and make sure is not in the list already
+            new_q =list(cur_q[1])
+            new_q.append(x)
+            q.append((x,new_q))# add to the deque
             ans = dfs(visted,q,ans)# here we store answer
             if isinstance(ans,str): # check if it is an answer
                 break#than exit the for loop
