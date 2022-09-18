@@ -21,10 +21,13 @@ visited = {0:0, 1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0, 10:0, 11:0}
 priority_q = queue.PriorityQueue()
 priority_q.put((0,11,[11]))#Let put our starting Node
 ans= []
+exp =[]
 while not priority_q.empty():
     print(priority_q.queue)
     temp = priority_q.get()
     visited[temp[1]]=1
+    if temp[1] not in exp:
+        exp.append(temp[1])
     if temp[1]==6:
         ans=temp[2]
         # ans.append(temp[1])
@@ -40,6 +43,10 @@ while not priority_q.empty():
             priority_q.put((temp[0]+val,index,temp_list))
 
 print(ans)
+temp_str= "UCS expanded: "
+for x in exp:
+    temp_str =temp_str+maps[x]+" "
+print(temp_str)
 temp_str = "UCS cost "+str(ans[-1])+" and path "
 ans.pop()# remove our cost 
 for x in ans:
